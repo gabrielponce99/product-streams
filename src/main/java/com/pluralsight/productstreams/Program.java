@@ -39,17 +39,20 @@ public class Program {
     private static List<Product> getProductsByCategory(List<Product> products, String category) {
         // STEP A (loop): make an empty list, loop through products, and add each one
         //   whose category matches (equalsIgnoreCase). Return the list.
-        List<Product> byCategory = new ArrayList<>();
-
-        for (Product product : products) {
-            if (product.getCategory().equalsIgnoreCase(category)) {
-                byCategory.add(product);
-            }
-        }
-        return byCategory; // replace this line
-    }
+//        List<Product> byCategory = new ArrayList<>();
+//
+//        for (Product product : products) {
+//            if (product.getCategory().equalsIgnoreCase(category)) {
+//                byCategory.add(product);
+//            }
+//        }
+//        return byCategory; // replace this line
+//    }
         // STEP B (stream): products.stream(), then .filter(...), then .toList()
 
+        return products.stream().filter(product -> product.getCategory().equalsIgnoreCase(category)).toList();
+
+    }
 
 
     // TASK 2: the total of every product's price
@@ -64,9 +67,8 @@ public class Program {
     }
 
 
-        // STEP B (stream, after Wednesday's demo): .map(...) each product to its price,
-        //   then .reduce(BigDecimal.ZERO, ...) to add them up
-
+    // STEP B (stream, after Wednesday's demo): .map(...) each product to its price,
+    //   then .reduce(BigDecimal.ZERO, ...) to add them up
 
 
     // TASK 3: how many products are in one category
@@ -81,8 +83,8 @@ public class Program {
         }
         return counter;
     }
-        // STEP B (stream): .filter(...), then .count()
-        // replace this line
+    // STEP B (stream): .filter(...), then .count()
+    // replace this line
 
 
     // TASK 4: a list of just the prices
@@ -96,8 +98,8 @@ public class Program {
 
         return prices;
     }
-        // STEP B (stream, after Wednesday's demo): .map(...) each product to its price,
-        //   then .toList()
+    // STEP B (stream, after Wednesday's demo): .map(...) each product to its price,
+    //   then .toList()
 
     // TASK 5: print each product
     private static void printProducts(List<Product> products) {
